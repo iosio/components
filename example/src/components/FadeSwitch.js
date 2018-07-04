@@ -99,6 +99,7 @@ class fadeSwitch extends React.Component {
         return (
             <Fader
                 duration={this.duration}
+                fast={true}
                 className={className}
                 style={{
                     position: 'relative',
