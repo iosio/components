@@ -15,7 +15,7 @@ export const asyncComponent = (getComponent, Loader, duration, fadeSwitch_props,
             }
         }
         render() {
-            const {Component, loaded} = this.state;
+            const {Component} = this.state;
             return (
                 <FadeSwitch
                     {...fadeSwitch_props}
@@ -23,7 +23,7 @@ export const asyncComponent = (getComponent, Loader, duration, fadeSwitch_props,
                     duration={duration}
                     {...this.props}
                     style={{height: '100%', width: '100%'}}
-                    view={loaded ? 1 : 0}
+                    view={Component ? 1 : 0}
                     View0={Loader ? <Loader/> : <div>...Loading</div>}
                     View1={Component ? <Component {...this.props}/> : null}
                 />

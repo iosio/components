@@ -1,16 +1,8 @@
 import React from 'react';
-import withStyles from 'react-jss';
+
 import {Fader} from "./Fader";
 
-const styles = theme => ({
-    root: {
-        height: '100%',
-        width: '100%',
-        position: 'relative',
-    },
-});
-
-class fadeSwitch extends React.Component {
+export class FadeSwitch extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -99,9 +91,10 @@ class fadeSwitch extends React.Component {
         return (
             <Fader
                 duration={this.duration}
-                fast={true}
                 className={className}
                 style={{
+                    height: '100%',
+                    width: '100%',
                     position: 'relative',
                     ...combined_style,
                 }}
@@ -114,5 +107,3 @@ class fadeSwitch extends React.Component {
         );//end return
     };//end render
 }//end class
-
-export const FadeSwitch = withStyles(styles)(fadeSwitch);

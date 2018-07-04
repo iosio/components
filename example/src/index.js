@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-
+import {Loading} from "./components/Loading";
 
 import {asyncComponent} from "./components/asyncComponent";
 
-const App = asyncComponent()
+const App = asyncComponent(()=>import('./App'), Loading);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
