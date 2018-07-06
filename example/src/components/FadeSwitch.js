@@ -8,37 +8,21 @@ export class FadeSwitch extends React.Component {
         this.state = {
             show: true,
             view: 0,
+            initial: true,
         };
         this.is_mounted_ = false;
         this.timeout = false;
-
         this.duration = props.duration ? props.duration : 175;
     }
 
     componentDidMount() {
         this.is_mounted_ = true;
-        this.run(this.props.view);
+        this.showView(this.props.view);
 
     }
 
-    showView1 = () => {
-
-        if (this.is_mounted_) {
-            this.setState({
-                show: false,
-            });
-            if (this.is_mounted_) {
-                this.timeout = setTimeout(() => {
-                    this.setState({
-                        view: 1,
-                        show: true,
-                    });
-                }, this.duration);
-            }
-        }
-    };
-
-    showView0 = () => {
+    showView = (view_num) => {
+        const duration = this.state.initial ? 0 : this.duration;
         if (this.is_mounted_) {
             this.setState({
                 show: false,
@@ -46,20 +30,19 @@ export class FadeSwitch extends React.Component {
             this.timeout = setTimeout(() => {
                 if (this.is_mounted_) {
                     this.setState({
-                        view: 0,
+                        view: view_num,
                         show: true,
+                        initial: false
                     });
+
                 }
-            }, this.duration);
+            }, duration);
         }
     };
 
-    run = (view) => {
-        view === 0 ? this.showView0() : this.showView1();
-    };
     componentDidUpdate(prevProps) {
         if (prevProps.view !== this.props.view) {
-            this.run(this.props.view);
+            this.showView(this.props.view);
         }
     }
     componentWillUnmount() {
@@ -104,6 +87,6 @@ export class FadeSwitch extends React.Component {
 
             </Fader>
 
-        );//end return
-    };//end render
-}//end class
+        );
+    };
+}

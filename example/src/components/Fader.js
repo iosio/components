@@ -47,7 +47,7 @@ export class Fader extends React.PureComponent {
             </div>
         );
     }
-};
+}
 
 
 
