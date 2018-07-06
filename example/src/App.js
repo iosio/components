@@ -3,6 +3,11 @@ import React from 'react';
 import {FadeSwitch} from "./components/FadeSwitch";
 import {Fader} from "./components/Fader";
 
+
+import {asyncComponent} from "./components/asyncComponent";
+//
+const OtherStuff = asyncComponent(()=>import('./OtherStuff'), null, 1000);
+
 export default class App extends React.Component {
 
     state = {
@@ -48,6 +53,8 @@ export default class App extends React.Component {
                             <button onClick={() => this.setState({view: 1})}>
                                 fade to other view
                             </button>
+
+                            <OtherStuff/>
 
                         </div>
                     }
