@@ -1,110 +1,94 @@
 import React from 'react';
 
-import {FadeSwitch} from "./components/FadeSwitch";
-import {Fader} from "./components/Fader";
-
-
-import {asyncComponent} from "./components/asyncComponent";
-//
-const OtherStuff = asyncComponent(()=>import('./OtherStuff'), null, 1000);
+import {Jss} from './components/Jss';
+import {FadersAndAsync} from "./Pages/FadersAndAsync";
+import {TypoPage} from "./Pages/Typo";
+import {typography, fontFamily} from "./Pages/Typo";
 
 export default class App extends React.Component {
 
+
     state = {
-        view: 0,
-        show: false,
-    };
+        current_page: 'FadersAndAsync'
+    }
+    setPage = (page) => {
+        this.setState({current_page: page});
+    }
 
     render() {
 
-        const {view, show} = this.state;
+        const {current_page} = this.state;
+
+        const Btn = (props) => (
+            <div
+                style={{
+                    color: 'white',
+                    background: '#3e3e3e',
+                    margin: 10,
+                    padding: 15,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+                onClick={() => this.setPage(props.page)}>
+                {props.page}
+            </div>
+        );
 
         return (
-            <div style={{textAlign: 'center'}}>
-                <h1>asyncComponent</h1>
-                I am dynamically rendered.
-                <br/>
-                I have FadeSwitch built into me and will fade in once I am loaded.
-                <br/>
-                I have options to pass a loading indicator and duration of the transition
-
-                <br/>
-                <br/>
-
-                <FadeSwitch
-                    duration={300}
-                    view={view}
-                    View0={
-                        <div style={{
-                            height: 500,
-                            width: '100%',
-                            background: '#d0ffd2',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexDirection: 'column'
-                        }}>
-                            <h1>FadeSwitch</h1>
-                            I fade in on initial load as well.
-                            <br/>
-                            you can control my duration as well
-                            <br/>
-                            <br/>
-                            <button onClick={() => this.setState({view: 1})}>
-                                fade to other view
-                            </button>
-
-                            <OtherStuff/>
-
-                        </div>
+            //combine styles with other theme objects prior to this
+            <Jss theme={typography} global_styles={{
+                '@global':{
+                    '*':{
+                        boxSizing: 'border-box'
+                    },
+                    html: {
+                        margin: 0,
+                        padding: 0,
+                        fontFamily
+                    },
+                    body: {
+                        margin: 0,
+                        padding: 0,
                     }
 
-                    View1={
-
-                        <div style={{
-                            height: 500,
-                            width: '100%',
-                            background: '#d3ebff',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexDirection: 'column'
-                        }}>
-
-                            <button onClick={() => this.setState({view: 0})}>
-                                fade to other view
-                            </button>
-                            <br/>
-
-                            <button onClick={() => this.setState({show: !this.state.show})}>
-                                fade in other view
-                            </button>
-                            <br/>
-
-                            <Fader duration={2000} show={show}>
-
-                                <div style={{
-                                    padding: 50,
-                                    background: '#000000',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: 'white',
-                                    flexDirection: 'column'
-                                }}>
-                                    <h1>Fader</h1>
-                                   you can control my duration too!
-
-                                </div>
-                            </Fader>
+                }
+            }}>
+                <div style={{height: '100%', width: '100%'}}>
+                    <div style={{
+                        color: 'white',
+                        background: '#1b1b1b',
+                        position: 'fixed',
+                        top: 0,
+                        height: 60,
+                        width: '100%',
+                        right: 0,
+                        left: 0,
+                        display: 'flex',
+                    }}>
 
 
-                        </div>
-                    }
-                />
+                        <Btn page={'FadersAndAsync'}/>
+                        <Btn page={'TypoPage'}/>
+
+                    </div>
 
 
-            </div>
+                    <div style={{marginTop: 70}}>
+
+
+                        {current_page === 'FadersAndAsync' &&
+                        <FadersAndAsync/>
+                        }
+
+                        {current_page === 'TypoPage' &&
+                        <TypoPage/>
+                        }
+
+
+                    </div>
+                </div>
+            </Jss>
         )
     }
 }

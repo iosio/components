@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
-import {Loading} from "./components/Loading";
+import registerServiceWorker
+// ,{unregister}
+from './registerServiceWorker';
+import {Loading} from "./Loading";
 // import App from './App';
 
 import {asyncComponent} from "./components/asyncComponent";
+// unregister();
 //
 const App = asyncComponent(()=>import('./App'), Loading, 1000);
 

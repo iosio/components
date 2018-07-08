@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fader Component should match snapshot when duration is configured 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "opacity": 0,
+      "transition": "opacity 500ms ease-in-out",
+    }
+  }
+>
+  <div>
+    derp
+  </div>
+</div>
+`;
+
+exports[`Fader Component should match snapshot when show = false 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "opacity": 0,
+      "transition": "opacity 175ms ease-in-out",
+    }
+  }
+>
+  <div>
+    derp
+  </div>
+</div>
+`;
+
+exports[`Fader Component should match snapshot when show = true 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "opacity": 1,
+      "transition": "opacity 175ms ease-in-out",
+    }
+  }
+>
+  <div>
+    derp
+  </div>
+</div>
+`;

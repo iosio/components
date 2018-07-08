@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`asyncComponent should successfully load 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "relative",
+      "transition": "opacity 1ms ease-in-out",
+      "width": "100%",
+    }
+  }
+>
+  <div>
+    MyLoadingComponent
+  </div>
+</div>
+`;
+
+exports[`asyncComponent should successfully load 2`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "relative",
+      "transition": "opacity 1ms ease-in-out",
+      "width": "100%",
+    }
+  }
+>
+  <div>
+    MyComponent props: 
+    {"prop":"foo"}
+  </div>
+</div>
+`;

@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FadeSwitch Component it should update when new props are passed view (0) 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "relative",
+      "transition": "opacity 1ms ease-in-out",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="view-0"
+  >
+    I'm view 0!
+  </div>
+</div>
+`;
+
+exports[`FadeSwitch Component it should update when new props are passed view (1) 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "relative",
+      "transition": "opacity 1ms ease-in-out",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="view-1"
+  >
+    I'm view 1!
+  </div>
+</div>
+`;
+
+exports[`FadeSwitch Component should match snapshot when duration is configured 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "relative",
+      "transition": "opacity 500ms ease-in-out",
+      "width": "100%",
+    }
+  }
+>
+  <div>
+    I'm view 1!
+  </div>
+</div>
+`;
+
+exports[`FadeSwitch Component should match snapshot when view = 0 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "relative",
+      "transition": "opacity 175ms ease-in-out",
+      "width": "100%",
+    }
+  }
+>
+  <div>
+    I'm view 0!
+  </div>
+</div>
+`;
+
+exports[`FadeSwitch Component should match snapshot when view = 1 1`] = `
+<div
+  id="Fader"
+  style={
+    Object {
+      "height": "100%",
+      "opacity": 1,
+      "position": "relative",
+      "transition": "opacity 175ms ease-in-out",
+      "width": "100%",
+    }
+  }
+>
+  <div>
+    I'm view 1!
+  </div>
+</div>
+`;

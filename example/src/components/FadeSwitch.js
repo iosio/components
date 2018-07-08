@@ -18,7 +18,6 @@ export class FadeSwitch extends React.Component {
     componentDidMount() {
         this.is_mounted_ = true;
         this.showView(this.props.view);
-
     }
 
     showView = (view_num) => {
@@ -28,27 +27,16 @@ export class FadeSwitch extends React.Component {
             if (!this.state.initial_load) {
 
                 this.setState({show: false});
+
                 this.timeout = setTimeout(() => {
                     if (this.is_mounted_) {
-                        this.setState({
-                            view: view_num,
-                            show: true,
-                        });
-
+                        this.setState({view: view_num, show: true,});
                     }
                 }, this.duration);
 
             } else {
-
-                this.setState({
-                    view: view_num,
-                    show: true,
-                    initial_load: false
-                });
-
+                this.setState({view: view_num, show: true, initial_load: false});
             }
-
-
         }
     };
 
@@ -81,8 +69,7 @@ export class FadeSwitch extends React.Component {
         if (fader_props && fader_props.style) {
             fp_style = fader_props.style;
         }
-
-        const combined_style = {...style, ...fp_style}
+        const combined_style = {...style, ...fp_style};
 
         return (
             <Fader
@@ -97,7 +84,6 @@ export class FadeSwitch extends React.Component {
                 show={show}>
 
                 {view === 0 ? View0 : View1}
-                {/*{View0}*/}
             </Fader>
 
         );

@@ -32,16 +32,27 @@
         "coverage": "jest --coverage"
     },
     "devDependencies": {
+        "@iosio/capsule": "^0.0.14",
+
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.3",
         "babel-jest": "^23.2.0",
         "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
         "babel-plugin-transform-object-assign": "^6.22.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
         "babel-preset-react-app": "^3.1.1",
         "babel-runtime": "^6.26.0",
+        "create-react-class": "^15.6.3",
         "cross-env": "^5.1.6",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
         "jest": "^23.2.0",
         "npm-watch": "^0.3.0",
+        "prop-types": "^15.6.2",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
+        "react-test-renderer": "^16.4.1",
         "regenerator-runtime": "^0.12.0",
         "rimraf": "^2.6.2"
     },
@@ -58,11 +69,13 @@
         "testPathIgnorePatterns": [
             "/node_modules/",
             "/sandbox/",
+            "/example/",
             "/lib/",
             "/coverage/"
         ]
     },
     "dependencies": {
+        "@iosio/utils": "^1.0.43",
         "classnames": "^2.2.6",
         "jss": "^9.8.7",
         "jss-preset-default": "^4.5.0",
