@@ -1,6 +1,6 @@
 {
     "name": "@iosio/components",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "reusable components",
     "main": "libs/index.js",
     "license": "ISC",
