@@ -13,6 +13,7 @@ export const asyncComponent = (getComponent, Loader, duration, fadeSwitch_props,
                 });
             }
         }
+
         static Component = null;
         state = {Component: AsyncComponent.Component};
 
@@ -20,16 +21,22 @@ export const asyncComponent = (getComponent, Loader, duration, fadeSwitch_props,
             const {Component} = this.state;
 
             return (
-                <FadeSwitch
-                    {...fadeSwitch_props}
-                    fader_props={fader_props}
-                    duration={duration}
-                    {...this.props}
-                    style={{height: '100%', width: '100%'}}
-                    view={!!Component ? 1 : 0}
-                    View0={Loader ? <Loader/> : null}
-                    View1={Component ? <Component {...this.props}/> : null}
-                />
+                <React.Fragment>
+                    {Loader && duration > 0 ? <FadeSwitch
+                            {...fadeSwitch_props}
+                            fader_props={fader_props}
+                            duration={duration}
+                            {...this.props}
+                            style={{height: '100%', width: '100%'}}
+                            view={!!Component ? 1 : 0}
+                            View0={Loader ? <Loader/> : null}
+                            View1={Component ? <Component {...this.props}/> : null}
+                        />
+                        :
+
+                        (Component ? <Component {...this.props}/> : null)
+                    }
+                </React.Fragment>
             );
         }
     }
