@@ -22,7 +22,7 @@ export const asyncComponent = (getComponent, Loader, duration, fadeSwitch_props,
 
             return (
                 <React.Fragment>
-                    {Loader && duration > 0 ? <FadeSwitch
+                    {duration > 0 ? <FadeSwitch
                             {...fadeSwitch_props}
                             fader_props={fader_props}
                             duration={duration}
