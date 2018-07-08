@@ -1,6 +1,6 @@
 {
     "name": "@iosio/components",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "reusable components",
     "main": "libs/index.js",
     "license": "ISC",
@@ -33,7 +33,6 @@
     },
     "devDependencies": {
         "@iosio/capsule": "^0.0.14",
-
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.3",
         "babel-jest": "^23.2.0",
