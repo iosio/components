@@ -12,7 +12,7 @@ export class FadeSwitch extends React.Component {
         };
         this.is_mounted_ = false;
         this.timeout = false;
-        this.duration = props.duration ? props.duration : 175;
+        this.duration = props.duration || props.duration === 0 ? props.duration : 175;
     }
 
     componentDidMount() {

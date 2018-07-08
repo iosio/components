@@ -2,7 +2,7 @@ import React from 'react';
 export class Fader extends React.PureComponent {
     render() {
         const { className, style, show, children, duration, ref, ...rest } = this.props;
-        const value = duration ? duration : 175;
+        const value = duration || duration === 0 ? duration : 175;
         return (
             <div
                 id="Fader"
