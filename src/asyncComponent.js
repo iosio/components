@@ -5,15 +5,24 @@ export const asyncComponent = (getComponent, Loader, duration, fadeSwitch_props,
     return class AsyncComponent extends React.Component {
         constructor() {
             super();
+            this.is_mounted = false;
+        }
+        componentDidMount(){
+            this.is_mounted = true;
             if (!this.state.Component) {
                 getComponent().then(Component => {
                     Component = Component && Component.__esModule ? Component.default : Component;
                     AsyncComponent.Component = Component;
-                    this.setState({Component});
+                    if(this.is_mounted){
+                        this.setState({Component});
+                    }
+
                 });
             }
         }
-
+        componentWillUnmount(){
+            this.is_mounted = false;
+        }
         static Component = null;
         state = {Component: AsyncComponent.Component};
 
